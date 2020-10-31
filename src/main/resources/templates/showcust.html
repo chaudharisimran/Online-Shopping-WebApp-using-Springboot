@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Customers</title>
+</head>
+<body>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary">New User</button>
+    <button class="btn">Import</button>
+    <button class="btn">Export</button>
+</div>
+<div class="well">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Cust_ID</th>
+            <th>Cust_Name</th>
+            <th>Cust_Phone</th>
+            <th>Cust_Address</th>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="o : ${customers}">
+                <td th:utext="${o.Cust_ID}">Cust_ID</td>
+                <td th:utext="${o.Cust_Name}">Cust_Name</td>
+                <td th:utext="${o.Cust_Phone}">Cust_Phone</td>
+                <td th:utext="${o.Cust_Address}">Cust_Address</td>
+                <td>
+                    <a href="user.html"><i class="icon-pencil"></i></a>
+                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Delete Confirmation</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text">Are you sure you want to delete the user?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+    </div>
+</div>
+</body>
+</html>
