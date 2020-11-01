@@ -12,6 +12,7 @@ public class product {
     private String Size;
     private String Price;
     private String Company;
+    private String Image_path;
 
     public Integer getProd_ID() {
         return Prod_ID;
@@ -60,4 +61,12 @@ public class product {
     public void setCompany(String company) {
         Company = company;
     }
+
+    public String getImage_path() {
+        return Image_path;
+    }
+
+    public void setImage_path(String image_path) { Image_path = image_path;}
+
+
 }

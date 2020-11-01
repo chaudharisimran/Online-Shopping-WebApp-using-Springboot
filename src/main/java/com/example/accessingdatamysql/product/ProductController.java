@@ -34,7 +34,6 @@ public class ProductController {
         product.setColour(myproduct.getColour());
         product.setCompany(myproduct.getCompany());
         product.setPrice(myproduct.getPrice());
-        product.setProd_ID(myproduct.getProd_ID());
         product.setProd_Name(myproduct.getProd_Name());
         product.setSize(myproduct.getSize());
         productRepository.save(product);
@@ -59,7 +58,7 @@ public class ProductController {
     public String products(Model model) {
         final ArrayList<product> products = new ArrayList<>();
         productRepository.findAll().forEach(product -> products.add(product));
-        model.addAttribute("productlist", products);
+        model.addAttribute("products", products);
         return "productview";
     }
 
